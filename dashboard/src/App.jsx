@@ -70,7 +70,10 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        <h1>하남갑뉴스레터</h1>
+        <h1>
+          하남갑<br />
+          <span style={{ fontSize: '0.8em', color: '#6366f1' }}>NewsLetter</span>
+        </h1>
         <p>매일 업데이트되는 하남시 주요 뉴스 및 시정 소식을 한눈에 확인하세요.</p>
       </header>
 
