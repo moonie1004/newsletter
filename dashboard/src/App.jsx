@@ -4,18 +4,59 @@ import LatestNews from './components/LatestNews';
 import CalendarView from './components/CalendarView';
 import NewsModal from './components/NewsModal';
 
+import { supabase } from './supabaseClient';
+
 function App() {
   const [newsData, setNewsData] = useState([]);
   const [selectedNews, setSelectedNews] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
 
   useEffect(() => {
-    fetch('/newsData.json')
-      .then(res => res.json())
-      .then(data => {
-        setNewsData(data);
-      })
-      .catch(err => console.error("Failed to load news data", err));
+    const fetchNews = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('news_articles')
+          .select('*')
+          .order('date', { ascending: false });
+        
+        if (error) throw error;
+        
+        const grouped = {};
+        data.forEach(item => {
+          if (!grouped[item.date]) {
+            grouped[item.date] = {
+              date: item.date,
+              mainNews: [],
+              top5: [],
+              cafeIssues: [],
+              cultureEvents: []
+            };
+          }
+          
+          if (item.category === 'mainNews') {
+            grouped[item.date].mainNews.push({
+              title: item.title,
+              summary: item.summary,
+              source: item.source,
+              link: item.link
+            });
+          } else if (item.category === 'top5') {
+            grouped[item.date].top5.push(item.title);
+          } else if (item.category === 'cafeIssues') {
+            grouped[item.date].cafeIssues.push(item.title);
+          } else if (item.category === 'cultureEvents') {
+            grouped[item.date].cultureEvents.push(item.title);
+          }
+        });
+        
+        const formattedData = Object.values(grouped).sort((a, b) => b.date.localeCompare(a.date));
+        setNewsData(formattedData);
+      } catch (err) {
+        console.error("Failed to load news data from Supabase", err);
+      }
+    };
+    
+    fetchNews();
   }, []);
 
   const handleReadMore = (newsItem) => {
