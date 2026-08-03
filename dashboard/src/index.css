@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Pretendard:wght@400;600;800&display=swap');
+
+:root {
+  --primary-color: #6366f1; /* Trendy indigo */
+  --accent-color: #ec4899; /* Vibrant pink */
+  --bg-color: #f8fafc;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --text-main: #374151; /* Softer dark gray instead of pure black/dark slate */
+  --text-muted: #64748b;
+  --shadow-float: 0 20px 40px -15px rgba(0,0,0,0.05);
+  --shadow-hover: 0 30px 60px -15px rgba(99, 102, 241, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Pretendard', 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,0.05) 0px, transparent 50%), 
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.header h1 {
+  font-family: 'Outfit', 'Pretendard', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 12px 40px;
+  border-radius: 9999px; /* Fully rounded pill shape */
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+
+/* Glassy Trendy Cards */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  box-shadow: var(--shadow-float);
+  padding: 35px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Layout */
+.main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Latest News */
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  background: linear-gradient(90deg, var(--primary-color), #818cf8);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 9999px; /* Pill shape */
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+.news-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  color: var(--text-main);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+
+.news-item p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--text-main);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.read-more:hover {
+  background-color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+/* Calendar */
+.calendar-wrapper {
+  position: sticky;
+  top: 40px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.calendar-nav-btn {
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-main);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-nav-btn:hover {
+  background: var(--text-main);
+  color: white;
+  transform: scale(1.1);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.calendar-day-header {
+  text-align: center;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.calendar-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: default;
+  color: var(--text-main);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-cell.empty {
+  visibility: hidden;
+}
+
+.calendar-cell.has-news {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text-main);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 4px;
+}
+
+.calendar-cell.has-news:hover {
+  color: var(--primary-color);
+  text-decoration-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.calendar-cell.has-news.selected {
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  width: 90%;
+  max-width: 800px;
+  max-height: 85vh;
+  border-radius: 30px;
+  padding: 50px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(30px) scale(0.95);
+  animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: #f1f5f9;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: var(--text-main);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-news-title {
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.modal-news-summary {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  color: #334155;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.modal-source {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.top5-list, .cafe-list, .culture-list {
+  padding-left: 0;
+  margin-top: 15px;
+  list-style-type: none;
+}
+
+.top5-list li, .cafe-list li, .culture-list li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding: 15px 20px;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.top5-list li {
+  background: #f0fdf4; /* Light Green */
+  border-left-color: #03c75a;
+}
+
+.cafe-list li {
+  background: #f7fee7; /* Light Lime */
+  border-left-color: #84cc16;
+}
+
+.culture-list li {
+  background: #faf5ff; /* Light Purple */
+  border-left-color: #8b5cf6;
+}
+
+.top5-list li:hover, .cafe-list li:hover, .culture-list li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  to { transform: translateY(0) scale(1); }
+}

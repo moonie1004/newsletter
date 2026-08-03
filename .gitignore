@@ -1,0 +1,23 @@
+# Node / React (dashboard)
+dashboard/node_modules/
+dashboard/dist/
+dashboard/dist-ssr/
+dashboard/*.local
+dashboard/.npm/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+venv/
+ENV/
+
+# System / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Local data (Optional, assuming we want to keep the markdown files but hide logs if any)
+*.log
