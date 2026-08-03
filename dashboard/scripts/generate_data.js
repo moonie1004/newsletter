@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const NEWSLETTER_DIR = path.join(__dirname, '../../');
+const NEWSLETTER_DIR = path.join(__dirname, '../news/');
 const OUTPUT_FILE = path.join(__dirname, '../public/newsData.json');
 
 function parseMarkdown(content, dateStr) {
