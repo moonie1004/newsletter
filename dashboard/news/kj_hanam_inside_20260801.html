@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>KJ's 하남 인사이드 - 2026년 8월 1일</title>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        /* ---- 상단 네비게이션 ---- */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 28px;
+        }
+        .top-nav a {
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: #4a5568;
+            transition: transform 0.15s;
+        }
+        .top-nav a:hover { transform: scale(1.25); }
+        .top-nav span {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        /* ---- 헤더 ---- */
+        .header-box {
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            color: #fff;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 30px;
+        }
+        .header-box h1 {
+            font-size: 1.65rem;
+            margin: 0 0 8px 0;
+            color: #fff;
+            border: none;
+        }
+        .header-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #bee3f8;
+        }
+        /* ---- 폭염 알림 배너 ---- */
+        .alert-banner {
+            background: linear-gradient(90deg, #7b2d2d, #c53030);
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .alert-banner strong { font-size: 1rem; }
+        /* ---- 목차 ---- */
+        .toc {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            border-radius: 8px;
+            padding: 16px 22px;
+            margin-bottom: 32px;
+        }
+        .toc h3 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #2c5282;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc ol li {
+            margin-bottom: 4px;
+        }
+        .toc ol li a {
+            color: #2b6cb0;
+            text-decoration: none;
+            font-size: 0.92rem;
+        }
+        /* ---- 본문 공통 ---- */
+        h2 {
+            font-size: 1.35rem;
+            color: #1a202c;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            padding: 8px 16px;
+            color: white;
+            border-radius: 6px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #2b6cb0, #4299e1);
+        }
+        .section-title.blue { background: linear-gradient(90deg, #2b6cb0, #4299e1); }
+        .section-title.green { background: linear-gradient(90deg, #2f855a, #48bb78); }
+        .section-title.purple { background: linear-gradient(90deg, #553c9a, #805ad5); }
+        .section-title.orange { background: linear-gradient(90deg, #c05621, #ed8936); }
+        .section-title.teal { background: linear-gradient(90deg, #319795, #4fd1c5); }
+        .section-title.pink { background: linear-gradient(90deg, #ed64a6, #fbb6ce); }
+        
+        .article-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 22px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            transition: box-shadow 0.2s;
+        }
+        .article-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .badge {
+            display: inline-block;
+            background-color: #edf2f7;
+            color: #4a5568;
+            font-size: 0.78rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .article-card h3 {
+            font-size: 1.1rem;
+            margin: 0 0 12px 0;
+            color: #2d3748;
+            line-height: 1.4;
+        }
+        .summary {
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        #lawmaker .summary, #legislative .summary {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            color: #2c5282;
+        }
+        #local-news .summary {
+            background: #f0fbf7;
+            border: 1px solid #c6f6d5;
+            color: #22543d;
+        }
+        #public-news .summary {
+            background: #f5f3ff;
+            border: 1px solid #e9d8fd;
+            color: #4c1d95;
+        }
+        .summary strong {
+            color: inherit;
+            font-weight: bold;
+        }
+        .source {
+            font-size: 0.82rem;
+            color: #718096;
+            border-top: 1px solid #edf2f7;
+            padding-top: 10px;
+        }
+        .source a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .source a:hover {
+            text-decoration: underline;
+        }
+        /* ---- 네이버 뉴스 리스트 ---- */
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .news-list li {
+            border-bottom: 1px solid #edf2f7;
+            padding: 16px 0;
+        }
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+        .news-list strong {
+            display: block;
+            font-size: 0.98rem;
+            color: #2d3748;
+            margin-bottom: 6px;
+        }
+        .news-list p {
+            margin: 0 0 8px 0;
+            font-size: 0.88rem;
+            color: #4a5568;
+        }
+        .news-meta {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+        .news-meta a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .news-meta a:hover {
+            text-decoration: underline;
+        }
+        /* ---- 지역 문화 소식 그리드 ---- */
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .event-card {
+            background-color: #f7fafc;
+            border: 1px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .event-card strong {
+            display: block;
+            font-size: 0.95rem;
+            color: #2b6cb0;
+            margin-bottom: 6px;
+        }
+        .event-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+        /* ---- 맘카페 핫이슈 ---- */
+        .mom-issue-card {
+            border-left: 4px solid #ed64a6;
+            background-color: #fffdfd;
+            border-top: 1px solid #fbb6ce;
+            border-right: 1px solid #fbb6ce;
+            border-bottom: 1px solid #fbb6ce;
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .mom-issue-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.05rem;
+            color: #b83280;
+        }
+        .mom-detail {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+        .mom-point {
+            font-size: 0.88rem;
+            color: #2d3748;
+            font-weight: bold;
+            background: #fff5f5;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            border-left: 2px solid #e53e3e;
+        }
+        .mom-reaction {
+            font-size: 0.85rem;
+            color: #718096;
+            font-style: italic;
+        }
+        /* ---- 하단 네비게이션 및 푸터 ---- */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        .bottom-nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #a0aec0;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 30px 0;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+    <!-- 상단 네비게이션 -->
+    <div class="top-nav">
+<a href="kj_hanam_inside_20260730.html" title="뒤로가기">◀️</a>
+<a href="kj_hanam_inside_20260802.html" title="앞으로가기">▶️</a>
+<a href="kj_hanam_inside_20260809.html" title="홈">🏠</a>
+<span>Hanam Inside: Local news, delivered by Lee Kwang-jae</span>
+</div>
+
+    <!-- 헤더 -->
+    <div class="header-box">
+        <h1>🏙️ KJ's 하남 인사이드</h1>
+        <p>6호 | 2026년 8월 1일 발행</p>
+    </div>
+
+    <!-- 폭염 알림 배너 -->
+    <div class="alert-banner">
+        <strong>⚠️ 폭염대비 안전안내:</strong> 수도권 전역 폭염경보 발령 중! 낮 시간대 야외활동을 자제하시고 충분한 수분을 섭취해 주십시오.
+    </div>
+
+    <!-- 목차 -->
+    <div class="toc">
+ 
+ <h3>📌 목차</h3>
+ <ol>
+ <li><a href="#legislative"> 우리동네 국회의원 이광재 언론보도</a></li>
+ <li><a href="#local-news"> 하남 지역신문 주요 뉴스</a></li>
+ <li><a href="#public-news"> 공공기관 소식지</a></li>
+ <li><a href="#naver-news"> 네이버 하남 관련 인기 뉴스 Top 5</a></li>
+ <li><a href="#mom-cafe"> 하남 맘카페 HOT 이슈 TOP 3</a></li>
+ <li><a href="#culture"> 우리동네 문화행사</a></li>
+ </ol>
+ 
+</div>
+
+    <!-- ===== 섹션 1: 국회의원 의정 소식 ===== -->
+    <div id="legislative">
+        <div class="section-title blue">🗣️ 우리동네 국회의원<br/>이광재 언론보도</div>
+        
+        <!-- 기사 1 -->
+        <div class="article-card">
+            <div class="badge">📰 2026.07.30 | 기재위 활동</div>
+            <h3>이광재 의원, 기재위 소속으로 당정 세제개편안 논의 비공개 회의 참석</h3>
+            <div class="summary">
+                국회 예산결산특별위원장이자 하남시갑 국회의원인 이광재 의원은 7월 30일 여의도 국회 의원회관에서 열린 <strong>당정 하반기 세제개편안 비공개 긴급 당정협의회</strong>에 참석했습니다. 이 의원은 고금리·고물가로 고통받는 서민과 중산층의 소득 부담을 실질적으로 경감시킬 소득세 세액공제 조정 등 민생 안정 세제 혜택 확충을 강력히 제안했습니다.
+            </div>
+            <div class="source">
+                📌 출처: 머니투데이 | <a href="http://news.mt.co.kr/mtview.php?no=2020072811127668128" rel="noopener" target="_blank">기사 원문 보기 →</a>
+            </div>
+        </div>
+
+        <!-- 기사 2 -->
+        <div class="article-card">
+            <div class="badge">📰 2026.07.25 | 지역 규제 혁신</div>
+            <h3>이광재 의원, "하남 캠프콜번 개발 제한 해제... 첨단 AI 클러스터 조성에 추진력 더할 것"</h3>
+            <div class="summary">
+                이광재 의원은 경기도의 개발제한구역(GB) 해제 통합지침 개선 성과에 대해 환영의 뜻을 밝혔습니다. 이 의원은 이번 규제 완화 결정으로 <strong>캠프콜번(하산곡동 일원) 내 약 300억 원 상당의 사업성 향상</strong>이 발생함에 따라, 이 지역을 차세대 글로벌 AI 및 문화 복합 융합클러스터 등 일자리가 넘치는 명품 자족도시로 본격 개발해 나갈 것임을 강조했습니다.
+            </div>
+            <div class="source">
+                📌 출처: 한국경제 | <a href="https://www.hankyung.com/article/202607022189h" rel="noopener" target="_blank">기사 원문 보기 →</a>
+            </div>
+        </div>
+
+        <!-- 기사 3 -->
+        <div class="article-card">
+            <div class="badge">📰 2026.07.22 | 전당대회 쇄신</div>
+            <h3>이광재 의원, 8월 전당대회 앞두고 당 쇄신 촉구... "계파 경쟁 지양하고 경제 정책 경쟁 펼쳐야"</h3>
+            <div class="summary">
+                민주당의 8월 전당대회가 임박한 가운데, 이광재 의원은 <strong>"당대표 및 최고위원 선거가 줄 세우기식 계파 권력 투쟁이 되어서는 안 된다"</strong>며, 서민 민생을 해결할 구체적인 경제 정책 대안과 실용주의 쇄신 노선 제시를 촉구했습니다. 이 의원은 국민의 신뢰를 되찾기 위해 국민과 정책 중심의 당 혁신을 주도해 가겠다고 다짐했습니다.
+            </div>
+            <div class="source">
+                📌 출처: TV조선 | <a href="https://news.tvchosun.com/site/data/html_dir/2026/06/22/2026062290069.html" rel="noopener" target="_blank">기사 원문 보기 →</a>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <!-- ===== 섹션 2: 하남지역 신문 뉴스 ===== -->
+    <div id="local-news">
+        <div class="section-title green">📰 하남지역 신문 주요 뉴스</div>
+        
+        <!-- 기사 1 -->
+        <div class="article-card">
+            <div class="badge">하남일보 | 2026.07.31</div>
+            <h3>인구 4만 감일지구 치안 공백 해결 시급... 시의원들, 하남경찰서 방문해 '지구대 신설' 촉구</h3>
+            <div class="summary">
+                하남시의회 조창민 의원은 정병용 의장 등 동료 의원들과 함께 하남경찰서를 방문하여 <strong>'감일지구대(가칭) 조기 신설 및 순찰 인력 보강'</strong>을 요청하는 긴급 서한을 전달했습니다. 현재 감일지구는 4만 명이 거주하고 초등학생 이하 아동 비율이 매우 높음에도 자체 지구대가 없어 인근 지구대 관할로 원거리 대처가 이뤄지고 있는 등 치안 취약 문제가 끊임없이 제기되어 왔습니다.
+            </div>
+            <div class="source">
+                📌 출처: 서울신문 | <a href="https://www.seoul.co.kr/news/publicnews/local_govern/news_local/2026/08/03/20260803500201?wlog_tag3=naver" rel="noopener" target="_blank">기사 원문 보기 →</a>
+            </div>
+        </div>
+
+        <!-- 기사 2 -->
+        <div class="article-card">
+            <div class="badge">하남일보 | 2026.07.30</div>
+            <h3>미사호수공원 음악분수 대대적 개보수 돌입... 8월 15일 광복절 전면 재개장 준비 박차</h3>
+            <div class="summary">
+                하남시는 미사호수공원의 낡은 음악분수 장치를 전면 교체하고 관람용 야간 워터스크린을 설치하는 <strong>음악분수 개보수 공사가 8월 중순 완료되어 15일 정식 재가동</strong>에 들어간다고 밝혔습니다. 시의회 등 예산 심의를 둘러싼 갈등 끝에 편성된 28억 원의 3회 추경 예산 집행이 완료됨으로써, 올여름 폭염 속 미사를 대표하는 야간 워터 레이저 쇼 명소로 다시금 거듭날 예정입니다.
+            </div>
+            <div class="source">
+                📌 출처: 메트로신문 | <a href="http://www.metroseoul.co.kr/article/20260731500104" rel="noopener" target="_blank">기사 원문 보기 →</a>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <!-- ===== 섹션 3: 공공기관 소식지 ===== -->
+    <div id="public-news">
+        <div class="section-title purple">🏛️ 공공기관 소식지</div>
+        
+        <div class="article-card">
+            <div class="badge">하남시청 공식 공지 | 2026.07.31</div>
+            <h3>[하남시청] 청년재정상담소 '이효석 대표 초청 경제특강' 접수 마감 임박</h3>
+            <div class="summary">
+                하남시는 관내 청년들을 위한 자산 형성 지원 프로그램의 일환으로 업계 최고의 경제 분석가인 <strong>이효석 대표를 초청하여 특별 투자 및 재정 관리 강연</strong>을 개최합니다. 7월 31일 선착순 접수가 최종 마감되며, 청년들이 건전하고 계획적인 금융 지식을 습득하고 종잣돈을 올바르게 불려갈 수 있도록 실질적인 컨설팅을 제공할 계획입니다.
+            </div>
+            <div class="source">
+                📌 출처: 국제뉴스 | <a href="https://www.gukjenews.com/news/articleView.html?idxno=3653996" rel="noopener" target="_blank">원문 확인 →</a>
+            </div>
+        </div>
+
+        <div class="article-card">
+            <div class="badge">감일건강생활지원센터 | 2026.07.29</div>
+            <h3>[감일건강생활지원센터] 하반기 건강생활 운동 프로그램 참가자 선착순 모집</h3>
+            <div class="summary">
+                하남시 감일건강생활지원센터는 감일지구 내 주민들의 체력 관리와 만성질환 예방을 위해 <strong>하반기 실버 라인댄스, 체형 교정 스트레칭 등 생애주기별 맞춤형 운동 교실</strong> 참가자를 모집합니다. 보건소 전문 강사진의 밀착 케어를 제공하며 지역 주민의 자가 건강 관리 역량 향상을 이끌어낼 방침입니다.
+            </div>
+            <div class="source">
+                📌 출처: 기호일보 | <a href="http://www.kihoilbo.co.kr/news/articleView.html?idxno=1106654" rel="noopener" target="_blank">원문 확인 →</a>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <!-- ===== 섹션 4: 네이버 인기 뉴스 Top 5 ===== -->
+    <div id="naver-news">
+        <div class="section-title orange">🔥 네이버 하남 관련 인기 뉴스 Top 5</div>
+        <ul class="news-list">
+            <li>
+                <strong>① 경기도 규제 경진대회 최우수상... 하남 캠프콜번 도시개발 사업 탄력</strong>
+                <p>하남시는 경기도 GB 해제 통합지침의 임대주택 의무비율 완화 등을 건의·개선하여 규제혁신 우수사례 경진대회에서 최우수상을 받았습니다. 이를 통해 캠프콜번(하산곡동) 개발의 사업성 개선 및 첨단 산업 단지 유치가 본궤도에 오릅니다.</p>
+                <div class="news-meta">📌 한국경제 | <a href="https://www.hankyung.com/article/202607022189h" rel="noopener" target="_blank">기사 원문 →</a></div>
+            </li>
+            <li>
+                <strong>② LH-수공, 하남교산 신도시에 국내 최초 '실외기 없는 수열에너지 아파트' 공급</strong>
+                <p>LH와 한국수자원공사는 하남교산 신도시 공동주택에 지하수나 강물 온도차를 냉난방에 적용하는 국내 최초 세대별 수열에너지 아파트를 2028년 단지부터 순차 적용하기로 협약을 맺고 탄소배출 제로 비전을 선언했습니다.</p>
+                <div class="news-meta">📌 연합뉴스 | <a href="https://www.yna.co.kr/view/AKR20260730164100063?input=1195m" rel="noopener" target="_blank">기사 원문 →</a></div>
+            </li>
+            <li>
+                <strong>③ 위례신도시 9월 정식 운영... 위례복합체육시설 8월 10일 개관식 개최</strong>
+                <p>위례 주민들의 큰 염원이었던 위례복합체육센터가 8월 10일 준공 및 개관식을 거쳐 9월 1일 전면 운영에 돌입합니다. 수영장, 생활문화센터 등을 갖추었으며 8월 11일부터 주민 대상 프로그램 접수를 시행합니다.</p>
+                <div class="news-meta">📌 하남타임즈 | <a href="http://www.hanamtimes.com/news/articleView.html?idxno=13148" rel="noopener" target="_blank">기사 원문 →</a></div>
+            </li>
+            <li>
+                <strong>④ 이현재 하남시장, 2026년 하반기 '달라지는 하남생활' 71개 밀착 약속 가동</strong>
+                <p>하남시는 미사, 감일, 위례 등 각 신도시별 행정 지원 인프라를 늘리고 원거리 통학 순환버스를 기존 5대에서 11대까지 순차 확대 운행하는 등 생활체감형 시민 행복 공약 71개 이행 과제를 하반기에 본격 가동합니다.</p>
+                <div class="news-meta">📌 한국경제 | <a href="https://www.hankyung.com/article/202602029154h" rel="noopener" target="_blank">기사 원문 →</a></div>
+            </li>
+            <li>
+                <strong>⑤ 하남도시공사, 폭염경보 속 관내 야외 운동시설 현장 '폭염안전 119 캠페인' 실시</strong>
+                <p>연일 체감온도 38도를 웃도는 불볕더위가 이어지는 가운데 하남도시공사는 체육시설 이용 주민들을 대상으로 한낮 야외 활동 자제를 권고하고 얼음물 무료 생수를 배부하는 야외 작업장 안전 캠페인을 집중 실시했습니다.</p>
+                <div class="news-meta">📌 CBC뉴스 | <a href="https://www.cbci.co.kr/news/articleView.html?idxno=594014" rel="noopener" target="_blank">기사 원문 →</a></div>
+            </li>
+        </ul>
+    </div>
+
+    <hr/>
+
+    <!-- ===== 섹션 5: 하남 맘카페 HOT 이슈 TOP 3 ===== -->
+    <div id="mom-cafe">
+        <div class="section-title" style="background: linear-gradient(90deg, #ed64a6, #fbb6ce);">💬 하남 맘카페 HOT 이슈 TOP 3</div>
+        
+        <div class="mom-issue-card">
+            <h4>1️⃣ 감일지구대(파출소) 신설 강력 요구 서명운동 돌입 (감일맘)</h4>
+            <div class="mom-detail"><strong>현황:</strong> 인구 4만 명 돌파 및 어린이 비중이 높은 신도시지만 관할 치안센터 부재로 사건사고 초기 대응 불안 가중.</div>
+            <div class="mom-point">💡 주민 포인트: 하남경찰서 대상 서명운동 동참 촉구 및 하남시의회 면담 결과 공유</div>
+            <div class="mom-reaction">💬 주민 반응: "아이들이 너무 많은데 파출소가 없다니 불안합니다", "서명에 전적으로 적극 참여하겠습니다!"</div>
+        </div>
+
+        <div class="mom-issue-card">
+            <h4>2️⃣ 미사호수공원 음악분수 8월 15일 재개장 소식 환영 (미사맘)</h4>
+            <div class="mom-detail"><strong>현황:</strong> 오랜 보수 공사와 예산 삭감 논란 끝에 28억 추경안이 집행되어 신규 대형 워터스크린 설치 작업이 8월 마무리 단계에 돌입.</div>
+            <div class="mom-point">💡 주민 포인트: 광복절 8월 15일 당일 화려한 레이저쇼 재개장 개막 일정 공유</div>
+            <div class="mom-reaction">💬 주민 반응: "드디어 음악분수를 밤에 볼 수 있네요", "아이들 데리고 돗자리 펴고 구경 가야겠어요."</div>
+        </div>
+
+        <div class="mom-issue-card">
+            <h4>3️⃣ 위례복합체육센터 수강신청 대란 및 정원 확대 요구 (위례맘)</h4>
+            <div class="mom-detail"><strong>현황:</strong> 8월 10일 개관식 이후 8월 11일부터 시작되는 수영 강습 등 인기 프로그램에 수많은 대기 주민들이 몰릴 것으로 예측.</div>
+            <div class="mom-point">💡 주민 포인트: 다목적 체육관 및 5레인 수영장의 세부 접수 일정과 요금 정보 공유</div>
+            <div class="mom-reaction">💬 주민 반응: "위례에 드디어 체육센터가 생겼지만 경쟁이 피 튀길 듯", "강좌 정원을 많이 늘려주었으면 좋겠습니다."</div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <!-- ===== 섹션 6: 지역 문화 소식 ===== -->
+    <div id="culture">
+        <div class="section-title" style="background: linear-gradient(90deg, #319795, #4fd1c5);">🎭 우리동네 문화행사</div>
+        <p style="color:#4a5568; font-size:0.93rem; margin-bottom:18px;">하남문화재단과 지역 내에서 진행되는 다채로운 문화 프로그램입니다.</p>
+        <div class="event-grid">
+            <div class="event-card">
+                <strong>🎨 기획전시 [ATO : NOLJA - 도하야 놀자!]</strong>
+                <p>7월 28일 ~ 8월 30일 | 하남문화예술회관 전시장<br/>유명 아티스트 함도하 작가의 신선하고 다채로운 아트퍼니처 가구 개인 디자인 전시회.</p>
+            </div>
+            <div class="event-card">
+                <strong>🎶 한·불 수교 140주년 기념 [갓 KOREA 심쿵 FRANCE]</strong>
+                <p>8월 13일(목) 19:30 | 하남문화예술회관 대극장<br/>1부 한국 전통예술과 2부 프랑스 클래식 음악이 아름답게 교차하는 특별 연합 콘서트.</p>
+            </div>
+            <div class="event-card">
+                <strong>🎵 스테이지 하남! 버스킹 공연</strong>
+                <p>8월 매주 주말 | 미사·위례·원도심 주요 광장<br/>하남 전역을 누비는 릴레이 버스킹 공연. 다양한 길거리 예술가들의 다채로운 무대를 만나보세요.</p>
+            </div>
+            <div class="event-card">
+                <strong>🎹 피아노 마라톤 (3인의 피아니스트)</strong>
+                <p>8월 29일(토) 17:00 | 하남문화예술회관 대극장<br/>김태형·김다솔·박진형 등 스타 피아니스트 3인의 아름다운 릴레이 공연 콘서트.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 네비게이션 -->
+    <div class="bottom-nav">
+        <a href="javascript:history.back()">◀️ 뒤로가기</a>
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ 맨 위로</a>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="footer">
+        <p>본 뉴스레터는 하남시 지역 현안 파악을 위해 주요 언론 보도 및 공공기관 자료를 바탕으로 작성되었습니다.</p>
+        <p>📅 발행일: 2026년 8월 1일 | 하남·감일·위례 소통 소식지</p>
+    </div>
+</div>
+</body>
+</html>

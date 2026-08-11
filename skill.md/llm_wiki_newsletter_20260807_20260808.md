@@ -136,10 +136,10 @@ D:\github\newsletter\newsletter\
 
 **작성 기준:** 각 기사 2~3줄 요약 + 언론사명 + 기사 원문 링크
 
-### 4-5. 지역 문화 소식
-- 하남문화재단 행사 일정
-- 하남역사박물관 기획전
-- 위례·감일 지역 공연/체험 프로그램
+### 4-5. ALL IN 하남라이프
+- 위례복합체육센터 운영 안내
+- 위례복합체육센터 수영장 임시운영 안내
+- 하남시미사강변종합사회복지관 개관 10주년 기념 바자회 주민부스 모집 안내
 
 ### 4-6. 맘카페 핫이슈 TOP 3
 ```
@@ -167,7 +167,7 @@ D:\github\newsletter\newsletter\
   2. 하남지역 신문 주요 뉴스
   3. 공공기관 소식지
   4. 네이버 하남 관련 인기 뉴스 Top 5
-  5. 지역 문화 소식
+  5. ALL IN 하남라이프
   6. 맘카페 HOT 이슈 TOP 3
 
 [Section 1] 🗣️ 이광재 의원 언론보도
@@ -182,7 +182,7 @@ D:\github\newsletter\newsletter\
 [Section 4] 🔥 네이버 인기 뉴스 Top 5
   - 번호 리스트 × 5 (제목 + 2-3줄 요약 + 언론사/링크)
 
-[Section 5] 🎭 지역 문화 소식
+[Section 5] 🎭 ALL IN 하남라이프
   - 2열 그리드 이벤트 카드 × 4~6개
 
 [Section 6] 🔥 맘카페 HOT 이슈 TOP 3
@@ -203,29 +203,33 @@ D:\github\newsletter\newsletter\
 | 하남지역 신문 | 📰 | `#276749 → #38a169` (초록) |
 | 공공기관 | 🏛️ | `#553c9a → #7c5cbf` (보라) |
 | 네이버 인기뉴스 | 🔥 | `#9c4221 → #dd6b20` (주황) |
-| 문화 소식 | 🎭 | `#234e52 → #319795` (청록) |
+| ALL IN 하남라이프 | 🎭 | `#234e52 → #319795` (청록) |
 | 맘카페 핫이슈 | 🔥 | `#d53f8c → #ed64a6` (분홍) |
 
-### 5-3. 핵심 CSS 컴포넌트
+### 5-3. 핵심 CSS 컴포넌트 및 마이크로 애니메이션
 
 ```css
-/* 기본 설정 */
+/* 기본 설정 및 페이드인 애니메이션 */
 max-width: 820px; 배경: #f0f4f8; 컨테이너: #ffffff
+animation: fadeInPage 0.6s ease-out;
 
 /* 헤더 박스 */
 background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
 
-/* 기사 카드 */
-background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 10px;
+/* 폭염 알림 배너 및 펄스 애니메이션 */
+animation: pulseBanner 2s infinite ease-in-out;
 
-/* 요약 박스 */
-background: #ebf8ff; border: 1px solid #90cdf4; color: #2c5282;
+/* 일반 기사 카드 및 호버 인터랙션 */
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
 
-/* 배지 */
-background: #e2e8f0; color: #4a5568; border-radius: 20px;
+/* ALL IN 하남라이프 카드 및 호버 인터랙션 */
+transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+:hover { transform: translateY(-2px); border-color: #2b6cb0; background-color: #ffffff; }
 
-/* 문화 행사 카드 */
-background: #fffaf0; border: 1px solid #fbd38d;
+/* 맘카페 핫이슈 카드 및 슬라이드 인터랙션 */
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+:hover { transform: translateX(4px); box-shadow: 0 4px 12px rgba(237,100,166,0.1); }
 ```
 
 ---
@@ -330,7 +334,7 @@ background: #fffaf0; border: 1px solid #fbd38d;
 
 ### 발행 결과
 - **폭염중대경보 배너:** 수도권 극한 폭염 발효로 긴급 알림 배너를 `<div class="alert-banner">` 형태로 최상단에 지속 배치함.
-- **섹션 수:** 6개 (이광재 의원, 하남지역 신문, 공공기관 소식, 네이버 Top5, 지역 문화 소식, 맘카페 핫이슈)
+- **섹션 수:** 6개 (이광재 의원, 하남지역 신문, 공공기관 소식, 네이버 Top5, ALL IN 하남라이프, 맘카페 핫이슈)
 - **파일 사이즈:** 약 22KB로 증가
 
 ---
@@ -347,12 +351,13 @@ background: #fffaf0; border: 1px solid #fbd38d;
 ✅ Section 2: 하남지역 신문 뉴스 2건 이상 (300자 내외 + 출처/링크)
 ✅ Section 3: 공공기관 소식지 2건 이상
 ✅ Section 4: 네이버 인기 뉴스 Top 5 (각 2-3줄 + 언론사/링크)
-✅ Section 5: 지역 문화 소식 (이벤트 그리드 카드)
+✅ Section 5: ALL IN 하남라이프 (이벤트 그리드 카드)
 ✅ Section 6: 맘카페 HOT 이슈 TOP 3 (badge + 현황/핵심/반응)
 ✅ 하단 네비게이션: ◀️ 뒤로가기 | ⬆️ 맨 위로
 ✅ 푸터: 발행일 + 면책 문구
 ✅ 섹션 간 <hr> 구분선
 ✅ 반응형 레이아웃 (모바일 지원)
+✅ 인터랙티브 마이크로 애니메이션 (호버 효과, 페이지 로드 페이드인, 배너 펄스 효과)
 ```
 
 ### 9-2. article-card 작성 패턴

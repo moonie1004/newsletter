@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KJ's 하남 인사이드 - 2026년 8월 11일</title>
+<style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            animation: fadeInPage 0.6s ease-out;
+        }
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* ---- 상단 네비게이션 ---- */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 28px;
+        }
+        .top-nav a {
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: #4a5568;
+            transition: transform 0.15s;
+        }
+        .top-nav a:hover { transform: scale(1.25); }
+        .top-nav span {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        /* ---- 헤더 ---- */
+        .header-box {
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            color: #fff;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 30px;
+        }
+        .header-box h1 {
+            font-size: 1.65rem;
+            margin: 0 0 8px 0;
+            color: #fff;
+            border: none;
+        }
+        .header-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #bee3f8;
+        }
+        /* ---- 폭염 알림 배너 ---- */
+        .alert-banner {
+            background: linear-gradient(90deg, #7b2d2d, #c53030);
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulseBanner 2s infinite ease-in-out;
+        }
+        @keyframes pulseBanner {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.005); opacity: 1; }
+        }
+        .alert-banner strong { font-size: 1rem; }
+        /* ---- 목차 ---- */
+        .toc {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            border-radius: 8px;
+            padding: 16px 22px;
+            margin-bottom: 32px;
+        }
+        .toc h3 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #2c5282;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc ol li {
+            margin-bottom: 4px;
+        }
+        .toc ol li a {
+            color: #2b6cb0;
+            text-decoration: none;
+            font-size: 0.92rem;
+        }
+        /* ---- 본문 공통 ---- */
+        h2 {
+            font-size: 1.35rem;
+            color: #1a202c;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            padding: 8px 16px;
+            color: white;
+            border-radius: 6px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #2b6cb0, #4299e1);
+        }
+        .section-title.blue { background: linear-gradient(90deg, #2b6cb0, #4299e1); }
+        .section-title.green { background: linear-gradient(90deg, #2f855a, #48bb78); }
+        .section-title.purple { background: linear-gradient(90deg, #553c9a, #805ad5); }
+        .section-title.orange { background: linear-gradient(90deg, #c05621, #ed8936); }
+        .section-title.teal { background: linear-gradient(90deg, #319795, #4fd1c5); }
+        .section-title.pink { background: linear-gradient(90deg, #ed64a6, #fbb6ce); }
+        
+        .article-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 22px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .badge {
+            display: inline-block;
+            background-color: #edf2f7;
+            color: #4a5568;
+            font-size: 0.78rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .article-card h3 {
+            font-size: 1.1rem;
+            margin: 0 0 12px 0;
+            color: #2d3748;
+            line-height: 1.4;
+        }
+        .summary {
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        #lawmaker .summary, #legislative .summary {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            color: #2c5282;
+        }
+        #local-news .summary {
+            background: #f0fbf7;
+            border: 1px solid #c6f6d5;
+            color: #22543d;
+        }
+        #public-news .summary {
+            background: #f5f3ff;
+            border: 1px solid #e9d8fd;
+            color: #4c1d95;
+        }
+        .summary strong {
+            color: inherit;
+            font-weight: bold;
+        }
+        .source {
+            font-size: 0.82rem;
+            color: #718096;
+            border-top: 1px solid #edf2f7;
+            padding-top: 10px;
+        }
+        .source a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .source a:hover {
+            text-decoration: underline;
+        }
+        /* ---- 네이버 뉴스 리스트 ---- */
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .news-list li {
+            border-bottom: 1px solid #edf2f7;
+            padding: 16px 0;
+        }
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+        .news-list strong {
+            display: block;
+            font-size: 0.98rem;
+            color: #2d3748;
+            margin-bottom: 6px;
+        }
+        .news-list p {
+            margin: 0 0 8px 0;
+            font-size: 0.88rem;
+            color: #4a5568;
+        }
+        .news-meta {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+        .news-meta a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .news-meta a:hover {
+            text-decoration: underline;
+        }
+        /* ---- 지역 문화 소식 그리드 ---- */
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .event-card {
+            background-color: #f7fafc;
+            border: 1px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 16px;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .event-card:hover {
+            transform: translateY(-2px);
+            border-color: #2b6cb0;
+            background-color: #ffffff;
+        }
+        .event-card strong {
+            display: block;
+            font-size: 0.95rem;
+            color: #2b6cb0;
+            margin-bottom: 6px;
+        }
+        .event-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+        /* ---- 맘카페 핫이슈 ---- */
+        .mom-issue-card {
+            border-left: 4px solid #ed64a6;
+            background-color: #fffdfd;
+            border-top: 1px solid #fbb6ce;
+            border-right: 1px solid #fbb6ce;
+            border-bottom: 1px solid #fbb6ce;
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mom-issue-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(237,100,166,0.1);
+        }
+        .mom-issue-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.05rem;
+            color: #b83280;
+        }
+        .mom-detail {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+        .mom-point {
+            font-size: 0.88rem;
+            color: #2d3748;
+            font-weight: bold;
+            background: #fff5f5;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            border-left: 2px solid #e53e3e;
+        }
+        .mom-reaction {
+            font-size: 0.85rem;
+            color: #718096;
+            font-style: italic;
+        }
+        /* ---- 하단 네비게이션 및 푸터 ---- */
+        .bottom-nav {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        .bottom-nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #a0aec0;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 30px 0;
+        }
+
+        /* ---- 모바일 최적화 미디어 쿼리 ---- */
+        @media (max-width: 600px) {
+            body {
+                padding: 8px;
+            }
+            .container {
+                padding: 16px;
+            }
+            .header-box {
+                padding: 20px 16px;
+            }
+            .header-box h1 {
+                font-size: 1.4rem;
+            }
+            .top-nav {
+                padding: 8px 12px;
+                margin-bottom: 20px;
+                gap: 8px;
+            }
+            .top-nav a {
+                font-size: 1.2rem;
+            }
+            .top-nav span {
+                font-size: 0.75rem;
+            }
+            .toc {
+                padding: 12px 16px;
+                margin-bottom: 24px;
+            }
+            h2, .section-title {
+                font-size: 1.05rem;
+                padding: 6px 12px;
+                margin-top: 30px;
+            }
+            .article-card {
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+            .article-card h3 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            .summary {
+                padding: 10px 12px;
+                font-size: 0.88rem;
+            }
+            .event-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .event-card {
+                padding: 12px;
+            }
+            .mom-issue-card {
+                padding: 16px;
+            }
+        }
+</style>
+</head>
+<body>
+<div class="container">
+<!-- 상단 네비게이션 -->
+<div class="top-nav">
+<span>Hanam Inside: Local news, delivered by Lee Kwang-jae</span>
+</div>
+<!-- 폭염 경보 알림 배너 -->
+<div class="alert-banner">
+        ⚠️ [폭염 중대 경보] 수도권 전역 폭염 안전 대응 집중 기간 운영 중. 야외활동 자제 및 충분한 수분 섭취를 당부드립니다.
+</div>
+<!-- 헤더 -->
+<div class="header-box">
+<h1>🏙️ KJ's 하남 인사이드</h1>
+<p>16호 | 2026년 8월 11일 발행</p>
+</div>
+<!-- 목차 -->
+<div class="toc">
+  <h3>📌 이번 호 주요 목차</h3>
+  <ol>
+  <li><a href="#lawmaker">우리동네 국회의원 이광재 언론보도</a></li>
+  <li><a href="#local-news">하남 지역 주요 뉴스</a></li>
+  <li><a href="#mom-cafe">하남 맘카페 HOT 이슈 TOP 3</a></li>
+  <li><a href="#naver-news">네이버 하남 관련 인기 뉴스 Top 5</a></li>
+  <li><a href="#culture">ALL IN 하남라이프</a></li>
+  <li><a href="#public-news">공공기관 소식지</a></li>
+  </ol>
+</div>
+<!-- ===== 섹션 1: 이광재 국회의원 언론보도 ===== -->
+<div id="lawmaker">
+<div class="section-title">🗣️ 우리동네 국회의원 이광재 언론보도</div>
+<!-- 기사 1 -->
+<div class="article-card">
+<div class="badge">📰 2026.08.10 | 자본시장 선진화</div>
+<h3>이광재 의원, NYSE 사장 기조 세미나 참석해 "한국 자본시장 기회와 위협 요인" 질의</h3>
+<div class="summary">
+                이광재 국회 예산결산특별위원회 위원장은 여의도 국회의원회관에서 개최된 '대한민국 자본시장의 선진화와 글로벌 경쟁력 제고 방안' 세미나에 참석했습니다. 이 의원은 린 마틴 뉴욕증권거래소(NYSE) 사장과의 질의응답에서 <strong>국내 기업들의 뉴욕 증시 교차상장에 따른 기회 및 위협 요인</strong>을 집중 질의하며, 국내 자본시장 선진화를 위한 실질적인 방안과 글로벌 경쟁력 강화 대책을 모색했습니다.
+            </div>
+<div class="source">
+                📌 출처: 포쓰저널 | <a href="https://www.4th.kr/news/articleView.html?idxno=2116052" rel="noopener" target="_blank">기사 원문 보기 →</a>
+</div>
+</div>
+<!-- 기사 2 -->
+<div class="article-card">
+<div class="badge">📰 2026.08.10 | 주택 공급 대책</div>
+<h3>이광재 의원, MBC 외전인터뷰서 "국가 자금 총동원해 질 좋은 임대주택 공급해야"</h3>
+<div class="summary">
+                이광재 의원은 MBC '뉴스외전' 인터뷰에 출연하여 주택 공급의 중요성을 역설하며 <strong>"날아가는 새도 집은 있다"</strong>라고 강조했습니다. 그는 서민 주거 안정을 실현하기 위해 국민연금 기금 투입, 모듈러 주택 적극 도입, 국유재산 개발 활성화 법안 추진 등 <strong>국가의 모든 재정과 자산을 총동원하는 획기적인 공급 대책</strong> 마련을 제안했습니다.
+            </div>
+<div class="source">
+                📌 출처: MBC 뉴스 | <a href="https://imnews.imbc.com/replay/2026/nw1400/article/6843667_36974.html" rel="noopener" target="_blank">기사 원문 보기 →</a>
+</div>
+</div>
+</div>
+<hr/>
+<!-- ===== 섹션 2: 하남 지역 주요 뉴스 ===== -->
+<div id="local-news">
+<div class="section-title green">📰 하남 지역 주요 뉴스</div>
+<!-- 기사 1 -->
+<div class="article-card">
+<div class="badge">📰 2026.08.10 | 친환경 교통 지원</div>
+<h3>하남시, 하반기 전기자동차 보급 대폭 확대... 승용 분야 40대 추가 지원</h3>
+<div class="summary">
+                하남시가 친환경 자동차 대중화와 대기질 개선을 위해 하반기 전기자동차 보급사업 지원 규모를 확대합니다. 특히 시민들의 관심과 수요가 집중된 승용(일반) 분야 보급 대수를 기존 737대에서 40대 증편한 777대로 조정하고, 보조금 신청 접수를 개시하여 친환경차 구매를 희망하는 가구의 혜택을 넓혔습니다.
+            </div>
+<div class="source">
+                📌 출처: 시티뉴스
+</div>
+</div>
+<!-- 기사 2 -->
+<div class="article-card">
+<div class="badge">📰 2026.08.10 | 도시개발 및 주민 소통</div>
+<h3>경기주택도시공사(GH), 하남교산 상산곡 기업이전단지 조경 특화 주민설명회 개최</h3>
+<div class="summary">
+                경기주택도시공사(GH)는 3기 신도시 기업 이전 대책의 일환으로 조성 중인 상산곡 기업이전단지 내 공원 및 녹지 구역의 조경 특화 설계를 고도화하기 위한 주민설명회를 열었습니다. 이번 설명회는 이전 대상 기업주 및 인근 지역 주민들의 요구 사항을 설계안에 적극 반영하여 자연친화적이고 실용적인 기업 환경을 구축하겠다는 취지로 마련되었습니다.
+            </div>
+<div class="source">
+                📌 출처: 시티뉴스
+</div>
+</div>
+<!-- 기사 3 -->
+<div class="article-card">
+<div class="badge">📰 2026.08.10 | 체류형 관광 인프라</div>
+<h3>하남시, 'K컬처 문화도시 TF' 2차 회의 개최... 글로벌 관광도시 도약 논의</h3>
+<div class="summary">
+                하남시는 K스타월드 조성사업 등 K컬처 복합 콤플렉스와 한강 국가정원을 효과적으로 연계하기 위한 'K컬처 문화도시 TF' 2차 회의를 열었습니다. 회의에서는 하남시를 세계적인 체류형 문화관광도시로 탈바꿈하기 위한 핵심 추진 과제를 점검하고 부서 간 유기적 협력 체계를 다졌습니다.
+            </div>
+<div class="source">
+                📌 출처: 시티뉴스
+</div>
+</div>
+</div>
+<hr/>
+<!-- ===== 섹션 6: 하남 맘카페 HOT 이슈 TOP 3 ===== -->
+<div id="mom-cafe">
+<div class="section-title pink">💬 하남 맘카페 HOT 이슈 TOP 3</div>
+<p style="color:#4a5568; font-size:0.93rem; margin-bottom:18px;">하남 지역 인터넷 커뮤니티에서 가장 화두가 되었던 우리 동네 소식을 모았습니다.</p>
+
+<div class="mom-issue-card">
+<h4>1️⃣ 위례복합체육센터 준공 완료 및 생애 첫 수강신청 추첨 접수 개시 (위례맘)</h4>
+<div class="mom-detail"><strong>현황:</strong> 하남도시공사가 준공한 위례복합체육센터의 수영장, 헬스장 등 체육시설 프로그램 수강 접수가 8월 11일(화)부터 개시된다는 소식에 주민들의 관심이 쏠렸습니다.</div>
+<div class="mom-point">💡 주민 포인트: 선착순 접수가 아닌 100% 추첨 방식으로 진행되어 8월 23일까지 온라인 및 방문 접수를 받으며, 당첨 발표는 8월 24일 예정입니다.</div>
+<div class="mom-reaction">💬 주민 반응: "드디어 위례에 수영장 있는 체육시설이 생겨서 너무 기쁘다", "대기하느라 밤새지 않아도 되는 추첨 방식이라 공평하고 다행이다"라는 반응이 이어지고 있습니다.</div>
+</div>
+
+<div class="mom-issue-card">
+<h4>2️⃣ 망월동 (가칭)어린이영어도서관 10월 준공 앞둔 가구 설치 및 미디어센터 기대감 (미사맘)</h4>
+<div class="mom-detail"><strong>현황:</strong> 미사강변도시에 지하 1층~지상 4층 규모로 건립 중인 어린이영어도서관이 10월 개관을 목표로 내부 디자인 가구 제작 및 설치를 진행 중이라는 글이 공유되며 큰 기대를 모았습니다.</div>
+<div class="mom-point">💡 주민 포인트: 기존 도서관들과 차별화하여 영어 특화 자료실뿐만 아니라 어린이가 직접 영상을 기획·제작할 수 있는 '영상미디어센터'가 탑재될 예정입니다.</div>
+<div class="mom-reaction">💬 주민 반응: "단순히 책만 보는 게 아니라 영어 특화 공간과 미디어 체험까지 가능하다고 하니 아이들에게 유익하겠다", "10월 개관이 벌써 기다려진다"는 환영의 댓글이 많습니다.</div>
+</div>
+
+<div class="mom-issue-card">
+<h4>3️⃣ 계속되는 폭염 안전 경보, 아이들과 가볼 만한 관내 실내 에어컨 무료 대피 시설 공유 (하남맘)</h4>
+<div class="mom-detail"><strong>현황:</strong> 수도권 전역에 폭염 경보 및 주의보가 장기간 이어지면서 야외 활동이 불가능해지자, 맘카페를 중심으로 미사도서관, 디지털도서관, 하남역사박물관 등 에어컨이 쾌적하게 가동되는 실내 공공시설 정보들이 활발하게 공유되고 있습니다.</div>
+<div class="mom-point">💡 주민 포인트: 특히 주말에 에어컨 요금도 아낄 겸 아이들과 시원하게 독서하고 문화 강좌나 체험도 무료로 즐길 수 있는 코스를 공유하는 꿀팁 글들이 조회수를 올리고 있습니다.</div>
+<div class="mom-reaction">💬 주민 반응: "집에서 온종일 에어컨 틀기 부담스러웠는데 시원한 도서관으로 피서 가는 게 최고다", "아이들도 책 읽으며 방학 숙제까지 해결할 수 있어 일석이조"라는 공감이 쏟아지고 있습니다.</div>
+</div>
+</div>
+<hr/>
+<!-- ===== 섹션 4: 네이버 인기 뉴스 Top 5 ===== -->
+<div id="naver-news">
+<div class="section-title orange">🔥 네이버 하남 관련 인기 뉴스 Top 5</div>
+<ul class="news-list">
+<li>
+<strong>① 하남 위례 권역 주민 숙원 '위례복합체육센터' 정식 준공 및 개관</strong>
+<p>학암동에 연면적 6,900여㎡ 규모로 건립된 위례복합체육센터가 8월 10일 정식 개관했습니다. 수영장, 실내체육관, 스크린 파크골프장, 돌봄센터 등을 갖춘 생활 밀착형 복합시설로서 주민들의 기대를 한 몸에 받고 있으며 9월 1일부터 본격적인 프로그램 운영에 돌입합니다.</p>
+<div class="news-meta">📌 연합뉴스</div>
+</li>
+<li>
+<strong>② 경기주택도시공사(GH), 하남교산 상산곡 기업이전단지 조경 특화 주민설명회 완료</strong>
+<p>GH는 상산곡동 기업이전단지 내 공원 및 녹지 조성의 실용성과 미관을 높이기 위해 기업인과 주민들의 생생한 아이디어를 듣는 설명회를 열었습니다. 친환경적인 설계를 실시설계안에 전폭 반영하여 상생형 기업 이전을 도울 방침입니다.</p>
+<div class="news-meta">📌 머니투데이</div>
+</li>
+<li>
+<strong>③ 하남시, 'K컬처 문화도시 TF' 가동해 글로벌 체류형 문화관광도시 청사진 구축</strong>
+<p>하남시가 K스타월드 등 핵심 현안과 한강 국가정원을 효과적으로 연계하는 TF 2차 실무 회의를 성공적으로 가치화했습니다. 하남을 글로벌 허브 문화관광 벨트로 승격하기 위한 체계적인 부서별 협업 인프라를 다졌습니다.</p>
+<div class="news-meta">📌 머니투데이</div>
+</li>
+<li>
+<strong>④ 자매도시 우정 다진다... 하남시-영월군 청소년 캠프 하남 일원서 마무리</strong>
+<p>하남시 청소년들과 자매도시 강원 영월군의 청소년들이 참여한 단짝 교류 캠프가 1박 2일 일정으로 하남 역사 유적 견학 및 스타필드 체험 등과 함께 성황리에 종료되어 양 도시 청소년들의 교우 깊이를 넓혔습니다.</p>
+<div class="news-meta">📌 미디어투데이</div>
+</li>
+<li>
+<strong>⑤ 친환경 차량 확대... 하남시, 하반기 전기자동차 승용차 보급 지원 증편</strong>
+<p>하남시는 친환경 미래차 보급을 장려하고자 승용차 지원 일반 보급 대수를 기존 737대에서 777대로 확대 운영한다고 밝혔습니다. 대기 환경 개선에 기여하고 일반 구매 수요자들에게 더욱 고른 보조금 혜택이 분배되도록 조치했습니다.</p>
+<div class="news-meta">📌 시티뉴스</div>
+</li>
+</ul>
+</div>
+<hr/>
+<!-- ===== 섹션 5: 지역 문화 소식 ===== -->
+<div id="culture">
+<div class="section-title" style="background: linear-gradient(90deg, #319795, #4fd1c5);">🎭 ALL IN 하남라이프</div>
+<p style="color:#4a5568; font-size:0.93rem; margin-bottom:18px;">한눈에 보는 하남시 문화·체육·축제 가이드</p>
+<div class="event-grid">
+<div class="event-card">
+<strong>🏊 위례복합체육센터 운영 안내</strong>
+<p>추첨 접수: 8/11 ~ 8/23 (프로그램 안내는 8월 첫째 주 업로드 완료)<br/>추첨 발표: 8/24 14:00 (예정)<br/>당첨자 등록: 추첨 발표 후 ~ 8/31<br/>정식 운영 개시: 9/1 (화)</p>
+</div>
+<div class="event-card">
+<strong>💦 위례복합체육센터 수영장 임시운영(예정) 안내</strong>
+<p>일정: 8/11 ~ 8/21 (주말 및 공휴일 제외) | 09:00 ~ 18:00<br/>• 1부 09:00~10:50 | 2부 11:00~12:50 | 3부 14:00~15:50 | 4부 16:00~17:50<br/>• 정원 60명 선착순 입장 (시작 25분 전 발권 및 입장 가능)<br/>* 임시운영은 현장 및 운영 상황에 따라 변동될 수 있습니다.</p>
+</div>
+<div class="event-card">
+<strong>🛍️ 미사강변종합사회복지관 개관 10주년 바자회 주민부스 모집</strong>
+<p>모집 기간: 2026.08.03 (월) ~ 08.14 (금)<br/>행사 일시: 2026.09.12 (토) 10:00 ~ 15:00 | 미사강변13단지 및 복지관 주변<br/>참여 혜택: 참가비 무료 (판매수익금 10% 기부) | 중고물품, 잡화, 수공예품 판매</p>
+</div>
+</div>
+</div>
+<hr/>
+<!-- ===== 섹션 3: 공공기관 소식지 ===== -->
+<div id="public-news">
+<div class="section-title purple">🏛️ 공공기관 소식지</div>
+<!-- 기사 1 -->
+<div class="article-card">
+<div class="badge">🏛️ 하남시청 공식 공고 | 2026.08.10</div>
+<h3>[하남시청] 2027년 공동주택 지원사업 공고... 노후 시설 개선 보조금 지원</h3>
+<div class="summary">
+                하남시가 관내 공동주택의 쾌적하고 안전한 주거환경 조성을 위해 <strong>'2027년 공동주택 지원사업'</strong>을 공고했습니다. 대상 시설은 공용 시설물 개보수, 경비실 냉난방기 설치 및 에어컨 전기료 지원, 노후 승강기 교체 등이며, 총사업비의 일부를 보조금으로 지원합니다. 신청 기간은 8월 10일부터 9월 18일까지입니다.
+            </div>
+<div class="source">
+                📌 출처: 하남시청 공식 홈페이지 고시공고
+</div>
+</div>
+<!-- 기사 2 -->
+<div class="article-card">
+<div class="badge">🏛️ 하남시청 공식 공고 | 2026.08.10</div>
+<h3>[하남시청] '2026년 제2회 하남시 청년 채용 ZONE' 구직청년 모집</h3>
+<div class="summary">
+                하남시가 청년들의 일자리 기회 확대를 위해 <strong>'제2회 청년 채용 ZONE'</strong>을 운영하고 참여할 구직 청년들을 모집합니다. 우수 구인 기업들과의 1대1 현장 면접 기회를 제공하며, 일자리 연계를 돕습니다. 참여를 원하는 하남시 거주 만 19세~39세 청년은 공고문을 확인하여 일자리 지원 부서에 접수할 수 있습니다.
+            </div>
+<div class="source">
+                📌 출처: 하남시청 공식 홈페이지 고시공고
+</div>
+</div>
+</div>
+
+<div class="bottom-nav" style="justify-content: center;">
+<a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ 맨 위로</a>
+</div>
+<!-- 푸터 -->
+<div class="footer">
+<p>본 뉴스레터는 하남시 지역 현안 파악을 위해 주요 언론 보도 및 공공기관 자료를 바탕으로 작성되었습니다.</p>
+<p>📅 발행일: 2026년 8월 11일 | 하남·감일·위례 소통 소식지</p>
+</div>
+</div>
+</body>
+</html>
